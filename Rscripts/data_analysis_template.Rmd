@@ -1,0 +1,125 @@
+---
+title: "data_analysis_template"
+author: "Elliott Schmidt"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: true  
+    toc_depth: 2
+    toc_float: true
+    code_folding: show
+    collapse: no
+    df_print: paged
+    fig_caption: yes
+    fig_height: 4
+    fig_width: 6
+    highlight: monochrome
+    theme: cerulean
+    latex_engine: xelatex
+---
+
+
+# Scenario 
+
+Type out a little bit about your experiment here
+
+# Load packages 
+
+```{r load-packages-1, warning=FALSE}
+
+```
+
+
+# Import data 
+
+```{r import-data-1, message=FALSE}
+
+```
+
+# Data manipulation 
+
+```{r data-manipulation-1, warning=FALSE}
+
+```
+
+# Exploratory data analysis {.tabset}
+
+```{r}
+
+```
+
+# Descriptive statistics 
+```{r descriptive-statistics}
+
+```
+
+
+# Fit model [random factors] 
+
+```{r}
+
+```
+
+# Fit Models [Fixed factors]
+
+```{r}
+
+```
+
+# Model Comparisons 
+
+```{r}
+
+```
+
+# Model validation {.tabset}
+
+## DHARMa residuals 
+```{r model-validation-2}
+
+```
+
+## performance 
+
+```{r}
+
+```
+
+# Model investigation {.tabset}
+
+## summary 
+
+```{r summary-100}
+
+```
+
+## ANOVA 
+
+```{r Anova}
+
+```
+
+## R2 
+
+```{r r-squared}
+
+```
+
+## emmeans - pariwise 
+
+```{r emmeans-pairwise}
+
+```
+
+## probabilities 
+```{r probabilities}
+
+```
+## {-}
+
+# Summary figure 
+
+```{r summary-figure-1}
+
+```
+
