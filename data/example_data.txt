@@ -1,0 +1,10 @@
+SampleID	response_var	independent_var
+fish_1	46	48
+fish_2	37	90
+fish_3	75	53
+fish_4	4	92
+fish_5	62	38
+fish_6	1	95
+fish_7	30	71
+fish_8	21	77
+fish_9	64	80
