@@ -28,7 +28,12 @@ Type out a little bit about your experiment here
 Careful what order you load your libraries in. The newest package loaded will have priority and can replace arguments that have the same names in other packages. 
 
 ```{r load-packages, warning=FALSE, message =FALSE}
-library("tidyverse")
+library("tidyverse") # data manipulation and plotting
+library("modelsummary") # descriptive statistics 
+library("MuMIn") # model comparison
+library("DHARMa") # model validation 
+library("performance") # model validation 
+library("car")
 ```
 
 
@@ -47,15 +52,18 @@ data2 <- data |>
 
 # Exploratory data analysis {.tabset}
 
-```{r}
-
+```{r warning =FALSE, message =FALSE}
+ggplot(data2, aes(y=response_var, x=independent_var2, color =group)) + 
+  geom_point() + 
+  geom_smooth(method ="lm") + 
+  theme_classic()
 ```
 
 # Descriptive statistics 
 
-A very useful package for descriptive statistics is a package called **modelsummary**
+A very useful package for descriptive statistics is a package called (model summary)[https://modelsummary.com/vignettes/datasummary.html]
 ```{r descriptive-statistics}
-
+datasummary(response_var * group ~ Mean + Median + SD + N, data =data2)
 ```
 
 
@@ -68,26 +76,27 @@ A very useful package for descriptive statistics is a package called **modelsumm
 # Fit Models [Fixed factors]
 
 ```{r}
-
+mod1 <- lm(response_var ~ independent_var * group, data = data2) 
+mod2 <- lm(response_var ~ independent_var * group * independent_var2, data =data2)
 ```
 
 # Model Comparisons 
 
 ```{r}
-
+AICc(mod1, mod2, k=4)
 ```
 
 # Model validation {.tabset}
 
 ## DHARMa residuals 
 ```{r model-validation-2}
-
+simulateResiduals(mod1, plot=TRUE)
 ```
 
 ## performance 
 
 ```{r}
-
+check_model(mod1)
 ```
 
 # Model investigation {.tabset}
@@ -95,36 +104,40 @@ A very useful package for descriptive statistics is a package called **modelsumm
 ## summary 
 
 ```{r summary-100}
-
+summary(mod1)
 ```
 
 ## ANOVA 
 
 ```{r Anova}
-
+car::Anova(mod1)
 ```
 
 ## R2 
 
 ```{r r-squared}
-
+r2(mod1)
 ```
 
 ## emmeans - pariwise 
 
 ```{r emmeans-pairwise}
-
+mod1 |> emmeans(pairwise~group, type="response") |> summary()
 ```
 
-## probabilities 
-```{r probabilities}
-
-```
 ## {-}
 
 # Summary figure 
 
 ```{r summary-figure-1}
+summary_figure <- ggplot(data2, aes(y=response_var, x=independent_var2, color =group)) + 
+  geom_point() + 
+  geom_smooth(method ="lm") + 
+  theme_classic() 
 
+
+pdf("outputs/summary_figure.pdf", width =6, height=4)
+summary_figure
+dev.off()
 ```
 
