@@ -1,10 +1,29 @@
-SampleID	response_var	independent_var
-fish_1	46	48
-fish_2	37	90
-fish_3	75	53
-fish_4	4	92
-fish_5	62	38
-fish_6	1	95
-fish_7	30	71
-fish_8	21	77
-fish_9	64	80
+SampleID	group	response_var	independent_var
+fish_1	A	32	9
+fish_2	A	70	41
+fish_3	A	52	33
+fish_4	A	29	15
+fish_5	A	66	53
+fish_6	A	13	86
+fish_7	A	14	23
+fish_8	A	21	64
+fish_9	A	95	60
+fish_10	B	6	48
+fish_11	B	64	82
+fish_12	B	59	3
+fish_13	B	37	71
+fish_14	B	34	31
+fish_15	B	60	29
+fish_16	B	17	62
+fish_17	B	7	96
+fish_18	B	51	46
+fish_19	B	61	51
+fish_20	C	98	30
+fish_21	C	48	72
+fish_22	C	72	68
+fish_23	C	85	11
+fish_24	C	81	32
+fish_25	C	62	30
+fish_26	C	40	65
+fish_27	C	2	49
+fish_28	C	56	67
